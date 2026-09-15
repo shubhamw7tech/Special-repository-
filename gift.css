@@ -1,0 +1,709 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: 'Poppins';
+    background-color: rgba(255, 134, 139, 0.662);
+}
+
+.BODY {
+	    display: flex;
+      justify-content: center;
+      align-items: center;   
+	    position:relative;
+      
+      margin: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    color: white;
+    background-image: linear-gradient(rgba(119, 31, 227, 0.844), blue);
+    box-shadow: 0 0 15px rgba(77, 61, 244, 0.815);
+}
+
+.Greets {
+    background-color: rgba(238, 52, 125, 0.899);
+    margin: 30px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 4px solid rgba(157, 8, 67, 0.899);
+    box-shadow: 0 0 15px rgba(235, 18, 104, 0.815);
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUpFade 4s ease-out forwards;
+}
+
+@keyframes slideUpFade {
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.Greets h2 {
+	  color: black;
+    background-color: rgba(199, 17, 89, 0.899);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.Greets p {
+    color: black;
+	  font-weight: bold;
+}
+
+.gift-one {
+    text-align: center;
+}
+
+.gift-one button {
+    color: rgba(0, 64, 56, 0.666);
+    background-color: rgba(27, 228, 179, 0.815);
+    padding: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 6px solid rgba(15, 151, 118, 0.815);
+    border-radius: 50px;
+    box-shadow: 0 0 30px rgb(57, 221, 197);
+}
+
+ #badge {
+	transform: scale(1);
+	transition: transform 0.6s ease;
+}
+
+ #badge:active {	
+	transform: scale(0.7);
+}
+
+.Greets2 {
+    background-color: rgba(229, 79, 85, 0.662);
+	  color: rgba(192, 0, 8, 0.662);;
+    margin: 30px 30px 0 30px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(201, 55, 61, 0.666);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.greetpage {
+    margin: 0 60px 60px 60px;
+    padding: 10px 25px 25px 25px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom: 4px solid rgba(192, 0, 8, 0.662);
+    border-left: 4px solid rgba(192, 0, 8, 0.662);
+    border-right: 4px solid rgba(192, 0, 8, 0.662);
+    box-shadow: 0 0 15px rgba(201, 55, 61, 0.666);
+    font-weight: bold;
+    color: rgba(173, 0, 55, 0.85);
+}
+
+/* --- GIFT BOX STYLES --- */
+    .gift-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+      position: relative;
+      width: 150px;
+      height: 150px;
+		}
+
+
+.gift-box {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      z-index: 2;
+}
+
+.gift-box:hover {
+    animation: shake 0.5s ease infinite;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(3deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-3deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* The lid of the box */
+    .lid {
+      position: absolute;
+      top: 20px;
+      left: -10px;
+      width: 170px;
+      height: 40px;
+      background-color: #c0392b;
+      border-radius: 8px;
+      z-index: 3;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* The ribbon on the lid */
+    .lid::after {
+      content: '';
+      position: absolute;
+      left: 70px;
+      width: 30px;
+      height: 100%;
+      background-color: #f39c12;
+		}
+
+/* The bottom part of the box */
+    .box-body {
+      position: absolute;
+      bottom: 0;
+      width: 150px;
+      height: 110px;
+      background-color: #e74c3c;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    /* The vertical ribbon */
+    .box-body::after {
+      content: '';
+      position: absolute;
+      left: 60px;
+      width: 30px;
+      height: 100%;
+      background-color: #f1c40f;
+		}
+
+
+/* Animation class applied via JavaScript */
+    .gift-box.open .lid {
+      transform: translateY(-80px) rotate(15deg);
+    }
+    
+    .gift-box.open {
+      animation: none; /* Stop shaking when open */
+    }
+
+    /* --- POPUP REWARD STYLES --- */
+    .reward-popup {
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%) scale(0.1);
+      opacity: 0;
+      background: white;
+      padding: 20px 40px;
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+      text-align: center;
+      z-index: 10;
+      pointer-events: none;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .reward-popup.show {
+      transform: translateX(-50%) scale(1);
+      opacity: 1;
+      pointer-events: auto;
+      top: -150px;
+    }
+
+    .reward-popup h2 {
+      margin: 0 0 15px 0;
+      color: #27ae60;
+      white-space: nowrap;
+    }
+
+    .reward-popup button {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+			cursor: pointer;
+      font-weight: bold;
+    }
+
+    .reward-popup button:hover {
+      background: #2980b9;
+		}
+
+#kitty {
+    font-size: 200px;
+}
+
+.greetlist li::marker {
+    content: "🎁";
+}
+
+.paras {
+    margin: 160px 15px 15px 15px;
+    padding: 10px;
+    text-align: center;
+    font-size: 21px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.paras p {
+    position: relative;
+    padding: 20px;
+    margin: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 1;
+    font-weight: bold;
+}
+
+/* Animated Light Beam */
+
+.paras p::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    aspect-ratio: 1;
+    background: conic-gradient(
+        from 0deg,
+        transparent 70%,
+        var(--beam-color) 100%
+    );
+    transform: translate(-50%, -50%);
+    animation: rotateBeam 3s linear infinite;
+    z-index: -2;
+}
+
+/* Background that masks the inside */
+
+.paras p::after {
+    content: '';
+    position: absolute;
+    inset: 7px;
+    background-color: var(--bg-color);
+    border-radius: 9px;
+    z-index: -1;
+}
+
+/* Paragraph Styles */
+
+.p1 {
+    --beam-color: rgb(220, 150, 255);
+    --bg-color: rgb(142, 6, 255);
+    color: rgb(208, 137, 255);
+    padding: 20px;
+    background-color: rgba(142, 6, 255);
+}
+
+.p2 {
+    --beam-color: rgb(180, 160, 255);
+    --bg-color: rgb(90, 62, 255);
+    color: rgb(157, 132, 255);
+    padding: 20px;
+    background-color: rgb(90, 62, 255);
+}
+
+.p3 {
+    --beam-color: rgb(167, 199, 255);
+    --bg-color: rgb(62, 155, 255);
+    color: rgb(167, 199, 255);
+    padding: 20px;
+    background-color: rgb(62, 155, 255);
+}
+
+.p4 {
+    --beam-color: rgb(167, 255, 221);
+    --bg-color: rgb(0, 205, 130);
+    color: rgb(167, 255, 221);
+    padding: 20px;
+    background-color: rgb(0, 205, 130);
+}
+
+/* Rotation Animation */
+
+@keyframes rotateBeam {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+
+    .about_gifts {
+			padding: 35px;
+			margin: 5px;			
+			box-shadow: 0 0 15px black;
+			border-radius: 10px;
+		}
+
+    .about_gifts h2{
+			text-align: center;
+			border-bottom: 2px solid black;
+		}
+
+    .reward-popup img{
+			width: 50%;
+		}
+
+
+/* Modal Overlay Background */
+#badge-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Modal Content Box */
+.modal-content {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  transform: scale(0.7) translateY(30px);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Show classes triggered by JS */
+#badge-modal.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+#badge-modal.show .modal-content {
+  transform: scale(1) translateY(0);
+}
+
+/* The Golden 13 Badge */
+.glowing-badge {
+  background: linear-gradient(135deg, #ff317d 0%, #ff0b0b 100%);
+  color: white;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  font-size: 45px;
+  font-weight: 900;
+  font-family: sans-serif;
+  border-radius: 50%;
+  margin: 15px auto 25px;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+  animation: pulse 2s infinite;
+}
+
+/* Pulsing Animation */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+  70% { box-shadow: 0 0 0 20px rgba(255, 215, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+/* Text and Extras */
+.emoji-celebration {
+  font-size: 30px;
+  margin-bottom: -10px;
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+.congrats-text {
+  color: #333;
+  margin-bottom: 10px;
+  font-family: sans-serif;
+}
+
+/* Close Button */
+#close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s;
+}
+
+#close-modal:hover {
+  color: #333;
+}
+
+    
+.Restaurant {
+	Margin: 15px;
+	padding: 10px;
+	Background-color: #8bff89;
+	border-radius: 10px;
+	box-shadow: 0 0 15px #6eeb6da9;
+	color: #015300;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+
+.Plateheading {
+	text-align: center;
+}
+
+/* Make the div act like a button */
+.rice_plate {
+	margin: 30px;
+  padding: 15px 30px;
+  background-color: #f8f9fa;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+	justify-content: center;
+	align-items: center;
+  cursor: pointer; 
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.rice_plate:hover {
+  background-color: #e9ecef;
+}
+
+/* Popup Overlay Background */
+.popup-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* The Popup Box */
+.popup-content {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* The Tasty Close Button */
+#closePopupBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#closePopupBtn:hover {
+  background-color: #f57c00;
+}
+
+
+.done_eat {
+    background-color: rgb(10, 199, 229);
+	  color: rgba(0, 97, 127, 0.6627450980392157);;
+    margin: 30px 30px 0 30px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(116, 221,  255, 0.6666666666666666);
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	  align-items: center;
+	
+}
+
+.done_eat img{
+	border-radius: 8px;
+}
+
+
+
+
+
+
+
+
+
+/* =========================================
+     1. GIFT BOX STYLES
+     ========================================= */
+  .gbx-present-container {
+    width: 120px;
+    height: 120px;
+    background-color: #e74c3c; /* Red box color */
+    position: relative;
+    cursor: pointer;
+    margin: 50px auto;
+    border-radius: 4px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  /* Hover animation to make it inviting */
+  .gbx-present-container:hover {
+    transform: scale(1.08) rotate(3deg);
+  }
+
+  .gbx-lid-top {
+    position: absolute;
+    width: 130px;
+    height: 30px;
+    background: #c0392b;
+    top: -15px;
+    left: -5px;
+    border-radius: 4px;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.15);
+    z-index: 2;
+  }
+
+  .gbx-ribbon-vert {
+    position: absolute;
+    width: 24px;
+    height: 100%;
+    background: #f1c40f; /* Gold ribbon */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .gbx-ribbon-horiz {
+    position: absolute;
+    height: 24px;
+    width: 100%;
+    background: #f1c40f;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+
+  /* Lid Ribbon */
+  .gbx-lid-ribbon {
+    position: absolute;
+    width: 24px;
+    height: 100%;
+    background: #f39c12; 
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* =========================================
+     2. OVERLAY / POPUP STYLES
+     ========================================= */
+  .gbx-overlay-backdrop {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gbx-reveal-panel {
+    background-color: #fff;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+    animation: gbx-pop-in 0.4s ease-out;
+  }
+
+  @keyframes gbx-pop-in {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .gbx-dismiss-action {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .gbx-dismiss-action:hover {
+    color: #e74c3c;
+  }
+
+  /* Container for your custom text/images */
+  .gbx-user-content-area {
+    margin-top: 15px;
+    font-family: Arial, sans-serif;
+    color: #333;
+	}
