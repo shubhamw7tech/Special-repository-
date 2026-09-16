@@ -1,3 +1,11 @@
+const music = document.getElementById("bgMusic");
+
+    document.addEventListener("click", () => {
+        music.play();
+    }, { once: true });
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     
     // --- 1. Gift Box JS ---
